@@ -5,7 +5,8 @@ Log withFile := method(file,
 	logger := Log clone
 	logger logfile := file
 	logger logfile openForUpdating
-	logger close := file getSlot("close")
+	logger close := method(self logfile close)
+	logger flush := method(self logfile flush)
 	return logger
 )
 
@@ -14,7 +15,7 @@ Log withFile := method(file,
 Log level := LogLevel ALL
 
 Log log := method(prefix, msg,
-	if (Log ?logfile, Log logfile, File standardOutput) writeln("#{Date now} #{prefix} #{msg}" interpolate)
+	if (self ?logfile, self logfile, File standardOutput) write("#{Date now} #{prefix} #{msg}" interpolate, "\n") flush
 )
 
 Log trace := method(msg, log("[TRACE]", msg); true)
