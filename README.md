@@ -12,3 +12,5 @@ Example usage:
     
     log level = LogLevel FATAL
     log fatal("I can see this now")
+    
+    log close
