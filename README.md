@@ -5,10 +5,14 @@ Example usage:
 ==============
 
 If you want write to 'test.log'
+
     log := Log with(File with("test.log"))
 
 or, if you want to log to stdout
-	log := Log clone
+    
+    log := Log clone
+
+Simple use as follows
 
     log level = LogLevel error
     
