@@ -4,13 +4,22 @@ A simple logging library for Io.
 Example usage:
 ==============
 
-    log := Log withFile(File with("test.log"))
-    log level = LogLevel ERROR
+If you want write to 'test.log'
+    log := Log with(File with("test.log"))
+
+or, if you want to log to stdout
+	log := Log clone
+
+    log level = LogLevel error
     
     log warn("I can't warn you enough")
     log fatal("I can't see this")
     
-    log level = LogLevel FATAL
+    log level = LogLevel fatal
     log fatal("I can see this now")
     
     log close
+
+ 
+
+
